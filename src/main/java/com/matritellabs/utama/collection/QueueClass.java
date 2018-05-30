@@ -1,16 +1,22 @@
 package com.matritellabs.utama.collection;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QueueClass implements Queueu{
     private int capacity;
-    private Object[] array;
+    private List<Object> list;
 
     public QueueClass(int capacity) {
         this.capacity = capacity;
-        this.array = new Object[capacity];
+        this.list = new ArrayList<>();
     }
 
     @Override
     public boolean add(Object e) {
+        if (this.list.size() == this.capacity) {
+            return false;
+        }
         return false;
     }
 
