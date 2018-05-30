@@ -2,8 +2,10 @@ package com.matritellabs.utama.collection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class QueueClass implements Queueu{
+
     private int capacity;
     private List<Object> list;
 
@@ -14,34 +16,68 @@ public class QueueClass implements Queueu{
 
     @Override
     public boolean add(Object e) {
-        if (this.list.size() == this.capacity) {
-            return false;
+        if (this.list.size() >= this.capacity) {
+            throw new IllegalStateException();
+        }else {
+            this.list.add(e);
+            return true;
         }
-        return false;
     }
 
     @Override
     public Object element() {
-        return null;
+        if (this.list.size() > 0) {
+        return this.list.get(0);
+        }
+        else {
+            throw new NoSuchElementException();
+        }
     }
 
     @Override
     public boolean offer(Object e) {
-        return false;
+        if (this.list.size() >= this.capacity) {
+            return false;
+        }else {
+            this.list.add(e);
+            return true;
+        }
     }
 
     @Override
     public Object peek() {
-        return null;
+        if (this.list.size() > 0) {
+            return this.list.get(0);
+        }
+        else {
+            return null;
+        }
     }
+
 
     @Override
     public Object poll() {
-        return null;
+        Object o;
+        if (this.list.size() > 0) {
+            o = this.list.get(0);
+            this.list.remove(0);
+            return o;
+        }
+        else {
+            return null;
+        }
     }
 
     @Override
     public Object remove() {
-        return null;
+        Object o;
+        if (this.list.size() > 0) {
+            o = this.list.get(0);
+            this.list.remove(0);
+            return o;
+        }
+        else {
+            throw new NoSuchElementException();
+        }
     }
 }
