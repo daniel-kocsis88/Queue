@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class QueueClass implements Queueu{
-    
+
     private int capacity;
     private List<Object> list;
 
