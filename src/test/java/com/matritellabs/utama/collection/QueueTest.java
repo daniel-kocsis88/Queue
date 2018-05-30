@@ -1,5 +1,4 @@
 package com.matritellabs.utama.collection;
 
-public interface Queueu {
-    
+public class QueueTest {
 }
